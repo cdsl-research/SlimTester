@@ -6,7 +6,7 @@
 
 ### テスト範囲を絞らない際のテスト実行
 <p>file: check-all.py</p>
-<p>WordPressのプラグインである, '[WP REST API](https://ja.wp-api.org/)'が導入されており, アプリケーションパスワードを生成済みの状態で実行できます.</p>
+<p>WordPressのプラグインである, [WP REST API](https://ja.wp-api.org/) が導入されており, アプリケーションパスワードを生成済みの状態で実行できます.</p>
 
 
 実行方法↓

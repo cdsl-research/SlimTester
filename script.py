@@ -2,7 +2,8 @@ import mysql.connector
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
-from urllib.parse import urlparse, urljoin, quote
+from urllib.parse import urlparse, urljoin, quote, unquote
+import time
 
 # データベース接続情報
 db_host = 'localhost'
@@ -20,6 +21,9 @@ fail_log_path = f'/mnt/log/fail-{current_date}.log'
 
 success_log = open(success_log_path, 'w')
 fail_log = open(fail_log_path, 'w')
+
+# 処理開始時刻を記録
+start_time = time.time()
 
 # MySQL接続
 db = mysql.connector.connect(
@@ -54,7 +58,7 @@ for post_id, post_title in posts:
                     # URLを正しくエンコードする
                     link = urljoin(post_url, link)
                     parsed_link = urlparse(link)
-                    encoded_link = parsed_link._replace(path=quote(parsed_link.path)).geturl()
+                    encoded_link = parsed_link._replace(path=quote(unquote(parsed_link.path))).geturl()
                     link_response = requests.get(encoded_link)
                     if link_response.status_code == 200:
                         success_log.write(f"  [LINK SUCCESS] {encoded_link}\n")
@@ -72,7 +76,7 @@ for post_id, post_title in posts:
                 try:
                     img = urljoin(post_url, img)
                     parsed_img = urlparse(img)
-                    encoded_img = parsed_img._replace(path=quote(parsed_img.path)).geturl()
+                    encoded_img = parsed_img._replace(path=quote(unquote(parsed_img.path))).geturl()
                     img_response = requests.get(encoded_img)
                     if img_response.status_code == 200:
                         success_log.write(f"  [IMAGE SUCCESS] {encoded_img}\n")
@@ -98,3 +102,10 @@ db.close()
 # ログファイルのクローズ
 success_log.close()
 fail_log.close()
+
+# 処理終了時刻を記録
+end_time = time.time()
+
+# 処理時間を計算して出力
+elapsed_time = end_time - start_time
+print(f"Total processing time: {elapsed_time} seconds")

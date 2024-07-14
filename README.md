@@ -16,7 +16,7 @@
 source .venv/bin/activate
 python3 check-all.py
 ```
-<p>実行ログは, '/home/nissy/testcase/log/alllog-{date_str}.log'に現状書き込まれるように設定しています. 適宜実行する際変更してください. </p>
+<p>実行ログは, `/home/nissy/testcase/log/alllog-{date_str}.log` に現状書き込まれるように設定しています. 適宜実行する際変更してください. </p>
 
 <p>トップページ, 固定ページ, 投稿記事のうち公開されているものをWP REST API経由で確認を行います. </p>
 

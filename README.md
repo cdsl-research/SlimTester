@@ -22,8 +22,8 @@ python3 check-all.py
 結果は, ターミナルとログファイルにそれぞれ出力されます.
 各項目の個数, 実行時間, Totalのプログラム実行時間が表示されます.
 
-結果の一例:
-```
+結果の一部:
+```bash
 2024-07-14 13:09:25,592 Total number of published pages: 12
 2024-07-14 13:09:25,641 Published page "Dojoの活動成果" is accessible.
 2024-07-14 13:09:28,043 Execution time for check_published_pages: 2.5981905460357666 seconds

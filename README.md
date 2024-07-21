@@ -6,7 +6,7 @@
 
 ### テスト範囲を絞らない際のテスト実行
 <p>file: check-all.py</p>
-<p>WordPressのプラグインである, [WP REST API](https://ja.wp-api.org/) が導入されており, アプリケーションパスワードを生成済みの状態で実行できます.</p>
+<p>動作条件: WordPressのプラグインである, [WP REST API](https://ja.wp-api.org/) が導入されており, アプリケーションパスワードを生成済みの状態で実行できます.</p>
 
 
 実行方法↓
@@ -46,3 +46,25 @@ python3 check-all.py
 
 ```
 
+### バックアップをリストアした際の閲覧数の比較
+<p>file: main-sub-check.py</p>
+<p>バックアップデータをリストアした際の, データベースを比較して閲覧数の差分を出すプログラムです.</p>
+
+### 結果の一部:
+```bash
+
+Main: {'cleaned_uri': '/archives/152', 'total_count': 73, 'post_title': 'テクニカルレポートを公開'}
+Sub: {'cleaned_uri': '/archives/152', 'total_count': 74, 'post_title': 'テクニカルレポートを公開'}
+---
+Main: {'cleaned_uri': '/archives/1115', 'total_count': 80, 'post_title': 'シン・エヴァンゲリオンで出てきた”L5”という単語について'}
+Sub: {'cleaned_uri': '/archives/1115', 'total_count': 82, 'post_title': 'シン・エヴァンゲリオンで出てきた”L5”という単語について'}
+---
+Main: {'cleaned_uri': '/archives/5725', 'total_count': 53, 'post_title': 'AIにブログ書かせてみた'}
+Sub: {'cleaned_uri': '/archives/5725', 'total_count': 54, 'post_title': 'AIにブログ書かせてみた'}
+---
+Main: {'cleaned_uri': '/archives/4042', 'total_count': 22, 'post_title': '北海道'}
+Sub: {'cleaned_uri': '/archives/4042', 'total_count': 23, 'post_title': '北海道'}
+---
+Main: {'cleaned_uri': '/archives/4089', 'total_count': 17, 'post_title': '新バージョン「Docker Desktop 4.19」'}
+Sub: {'cleaned_uri': '/archives/4089', 'total_count': 18, 'post_title': '新バージョン「Docker Desktop 4.19」'}
+```

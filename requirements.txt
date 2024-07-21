@@ -2,3 +2,10 @@ mysql-connector-python
 requests
 mysql
 beautifulsoup4
+# 追加
+pandas
+matplotlib
+# 追加
+pandas
+sqlalchemy
+pymysql
